@@ -1,0 +1,49 @@
+﻿@using Lab_26.Models;
+
+@{
+    ViewBag.Title = "Store";
+}
+
+@*<p style=" margin-bottom: 10px;"></p>
+    <img src="~/Content/cart.png" style="height: 30px; width: auto;"/> @Html.ActionLink("Show Cart", "ViewCart")
+    <p style=" margin-bottom: 10px;"></p>*@
+
+<p style=" margin-bottom: 30px;"></p>
+<form action="~/Items/ItemListByDescription" method="get">
+    <label>
+        <input type="text" name="description" class="form-control" placeholder="Search items by description" />
+    </label>
+    <input type="submit" value="Lookup" class="btn btn-primary" />
+</form>
+
+<br />
+
+<table class="table table-bordered">
+    <tr>
+
+        <th><a href="~/Items/ItemListSorted?column=Name">Name</a></th>
+        <th><a href="~/Items/ItemListSorted?column=Description">Description</a></th>
+        <th><a href="~/Items/ItemListSorted?column=Price">Price</a></th>
+        <th>Image</th>
+        <th>Add to Cart</th>
+
+        @foreach (Item i in ViewBag.Items)
+        {
+
+
+        <tr>
+
+            <td>@i.Name</td>
+            <td>@i.Description</td>
+            <td>@i.Price</td>
+            <td><img src="~/Content/@i.Image" style="height: 100px; width: auto;"></td>
+            <td>
+                <a href="~/Items/Cart?id=@i.ID"><input type="image" src="~/Content/cartplus.png" style="height: 40px; width: auto; margin: auto;" /></a>
+            </td>
+
+        </tr>
+    }
+
+    </table>
+
+    @Html.ActionLink("Back to List", "ItemList")
