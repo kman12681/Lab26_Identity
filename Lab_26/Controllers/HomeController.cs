@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lab_26.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,23 +9,26 @@ namespace Lab_26.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
+            CoffeeEntities orm = new CoffeeEntities();
+
+            ViewBag.Items = orm.Items.ToList();
+
             return View();
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
+
+
     }
 }

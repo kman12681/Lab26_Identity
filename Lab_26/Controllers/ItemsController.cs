@@ -135,12 +135,7 @@ namespace Lab_26.Controllers
             dao.GetItemList();
             List<Item> items = dao.GetItemList();
             ViewBag.Items = items;
-
-            //CoffeeEntities db = new CoffeeEntities();
-            //List<Item> items = db.Items.ToList();
-            //to build dropdown list
-            //ViewBag.Statuses = db.Statuses.ToList();
-
+            
             return View();
         }
 

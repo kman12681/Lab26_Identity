@@ -1,0 +1,31 @@
+﻿@using Lab_26.Models; 
+
+@{
+    ViewBag.Title = "Cart";
+}
+
+<h2>Shopping Cart</h2>
+
+<p style=" margin-bottom: 10px;"></p>
+@Html.ActionLink("Back to List", "ItemList")
+<p style=" margin-bottom: 10px;"></p>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Image</th>
+
+    </tr>
+
+    @foreach (Item i in (List<Item>)(Session["Cart"]))
+    {
+        <tr>
+            <td>@i.Name</td>
+            <td>@i.Price</td>
+            <td><img src=~/Content/@i.Image style="height: 50px; width: auto;"></td>
+        </tr>
+    }
+
+</table>
+
