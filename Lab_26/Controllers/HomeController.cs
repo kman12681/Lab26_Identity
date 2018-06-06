@@ -11,19 +11,17 @@ namespace Lab_26.Controllers
     {
 
         public ActionResult Index()
-        {
-            CoffeeEntities orm = new CoffeeEntities();
-
-            ViewBag.Items = orm.Items.ToList();
-
+        {          
             return View();
         }
 
+        [Authorize]
         public ActionResult About()
         {
             return View();
         }
 
+        [Authorize]
         public ActionResult Contact()
         {
             return View();

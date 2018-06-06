@@ -3,16 +3,8 @@
 }
 
 <div class="jumbotron">
-    <h1>Coffee & Co.</h1>
-    <p class="lead">Become a new customer today!</p>
-    <p><a href="/User" class="btn btn-primary btn-lg">Register &raquo;</a></p>
+    <h1>Coffee & Co.</h1>    
 </div>
-
-@*<form action="Home/ItemByName" onsubmit="return CheckItem()">
-        <input type="text" name="byName" id="item" placeholder="type item name exactly" />
-        <input type="submit" class="btn btn-primary" value="Lookup Item" />
-        <span id="ItemWarning"></span>
-    </form>*@
 
 <div class="row">
     <div class="col-md-4">
@@ -26,27 +18,5 @@
         <h2>Have Feedback?</h2>
         <p>Let us know how you feel.</p>
         <p><a class="btn btn-default" href="Home/Contact">Contact &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>New Accounts</h2>
-        <p>
-            You're just one step away from grinded goodness.
-        </p>
-        <p><a class="btn btn-default" href="/User">Sign Up &raquo;</a></p>
-    </div>
+    </div>    
 </div>
-
-<script>
-
-    function CheckItem() {
-        //alert("CheckItem running")
-        var item = document.getElementById("item").value;
-        if (item === "Holiday Music CD" || item === "Mug" || item === "Canvas Tote") {
-            return true;
-        }
-        document.getElementById("ItemWarning").innerHTML =
-            "<b>" + "type item name exactly(case-sensitive)</b>";
-        return false;
-    }
-
-</script>

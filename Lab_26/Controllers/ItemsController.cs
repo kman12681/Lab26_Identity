@@ -135,7 +135,7 @@ namespace Lab_26.Controllers
             dao.GetItemList();
             List<Item> items = dao.GetItemList();
             ViewBag.Items = items;
-            
+
             return View();
         }
 
@@ -144,28 +144,34 @@ namespace Lab_26.Controllers
             return View("Cart");
         }
 
-        public ActionResult Cart(int id)
+        public ActionResult EmptyCart(int? id)
         {
-
-            //check if the Cart object already exists
-            if (Session["Cart"] == null)
+            if (Session["Cart"] == null && id == null)
             {
-                //if it doesn't, make a new list of items
-                List<Item> cart = new List<Item>();
-                //add this item to it
-                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());
-                //add the list to the session
-                Session.Add("Cart", cart);
+                ViewBag.Message = "Nothing in cart";
+                return View();
             }
             else
             {
-                //if it does exist, get the list
-                List<Item> cart = (List<Item>)(Session["Cart"]);
-                //add this item to it
-                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());
-                //(add it back to the session)
-                //Session["Cart"] = cart;
+                return View("Cart");
             }
+        }
+
+        public ActionResult Cart(int id)
+        {            
+           
+            if (Session["Cart"] == null)
+            {                
+                List<Item> cart = new List<Item>();               
+                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());               
+                Session.Add("Cart", cart);
+            }
+            else
+            {                
+                List<Item> cart = (List<Item>)(Session["Cart"]);               
+                cart.Add((from i in dao.GetItemList() where i.ID == id select i).Single());               
+            }
+           
             return View();
         }
 

@@ -1,4 +1,4 @@
-﻿@using Lab_26.Models; 
+﻿@using Lab_26.Models;
 
 @{
     ViewBag.Title = "Cart";
@@ -20,11 +20,14 @@
 
     @foreach (Item i in (List<Item>)(Session["Cart"]))
     {
+              
+      
         <tr>
             <td>@i.Name</td>
             <td>@i.Price</td>
             <td><img src=~/Content/@i.Image style="height: 50px; width: auto;"></td>
         </tr>
+     
     }
 
 </table>
