@@ -104,26 +104,7 @@ namespace Lab_26.Controllers
             }
             return View(item);
         }
-
-        //GET: Items/Delete/5
-        //public actionresult delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new httpstatuscoderesult(httpstatuscode.badrequest);
-        //    }
-        //    item item = dao.getitem((int)id);
-        //    if (item == null)
-        //    {
-        //        return httpnotfound();
-        //    }
-        //    viewbag.item = item;
-        //    return view(item);
-        //}
-
-        // POST: Items/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
+       
         public ActionResult Delete(int id)
         {
             dao.DeleteItem(id);
